@@ -1,0 +1,59 @@
+<?php
+
+namespace UnaGauchada\FavoresBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Favor
+ *
+ * @ORM\Table(name="favores")
+ * @ORM\Entity(repositoryClass="UnaGauchada\FavoresBundle\Repository\FavorRepository")
+ */
+class Favor
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="text", nullable=true)
+     */
+    private $text;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="sysDate", type="datetime")
+     */
+    private $sysDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end", type="datetime")
+     */
+    private $end;
+
+    /**
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="UnaGauchada\UserBundle\Entity\Gaucho", inversedBy="solicitudes")
+     * @ORM\JoinColumn(name="gaucho_id", referencedColumnName="id")
+     */
+    private $solicitante;
+}
+

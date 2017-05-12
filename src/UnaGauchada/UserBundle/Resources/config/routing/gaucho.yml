@@ -1,0 +1,24 @@
+gaucho_index:
+    path:     /
+    defaults: { _controller: "UserBundle:Gaucho:index" }
+    methods:  GET
+
+gaucho_show:
+    path:     /{id}/show
+    defaults: { _controller: "UserBundle:Gaucho:show" }
+    methods:  GET
+
+gaucho_new:
+    path:     /new
+    defaults: { _controller: "UserBundle:Gaucho:new" }
+    methods:  [GET, POST]
+
+gaucho_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UserBundle:Gaucho:edit" }
+    methods:  [GET, POST]
+
+gaucho_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UserBundle:Gaucho:delete" }
+    methods:  DELETE

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Admins list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Ciudad</th>
+                <th>Password</th>
+                <th>Salt</th>
+                <th>Photo</th>
+                <th>Photomime</th>
+                <th>Sysdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td><a href="{{ path('admin_show', { 'id': admin.id }) }}">{{ admin.id }}</a></td>
+                <td>{{ admin.name }}</td>
+                <td>{{ admin.lastname }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.ciudad }}</td>
+                <td>{{ admin.password }}</td>
+                <td>{{ admin.salt }}</td>
+                <td>{{ admin.photo }}</td>
+                <td>{{ admin.photoMime }}</td>
+                <td>{% if admin.sysDate %}{{ admin.sysDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_show', { 'id': admin.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_edit', { 'id': admin.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_new') }}">Create a new admin</a>
+        </li>
+    </ul>
+{% endblock %}

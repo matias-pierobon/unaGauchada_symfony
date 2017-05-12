@@ -1,7 +1,7 @@
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+favores:
+    resource: "@FavoresBundle/Resources/config/routing.yml"
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /usuarios

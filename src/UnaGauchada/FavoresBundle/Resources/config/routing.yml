@@ -1,0 +1,4 @@
+favores_favor:
+    resource: "@FavoresBundle/Resources/config/routing/favor.yml"
+    prefix:   /favor
+

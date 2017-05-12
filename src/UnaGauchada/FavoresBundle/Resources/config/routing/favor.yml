@@ -1,0 +1,24 @@
+favor_index:
+    path:     /
+    defaults: { _controller: "FavoresBundle:Favor:index" }
+    methods:  GET
+
+favor_show:
+    path:     /{id}/show
+    defaults: { _controller: "FavoresBundle:Favor:show" }
+    methods:  GET
+
+favor_new:
+    path:     /new
+    defaults: { _controller: "FavoresBundle:Favor:new" }
+    methods:  [GET, POST]
+
+favor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FavoresBundle:Favor:edit" }
+    methods:  [GET, POST]
+
+favor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FavoresBundle:Favor:delete" }
+    methods:  DELETE

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gaucho</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gaucho.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ gaucho.name }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ gaucho.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ gaucho.email }}</td>
+            </tr>
+            <tr>
+                <th>Ciudad</th>
+                <td>{{ gaucho.ciudad }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ gaucho.password }}</td>
+            </tr>
+            <tr>
+                <th>Salt</th>
+                <td>{{ gaucho.salt }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ gaucho.photo }}</td>
+            </tr>
+            <tr>
+                <th>Photomime</th>
+                <td>{{ gaucho.photoMime }}</td>
+            </tr>
+            <tr>
+                <th>Sysdate</th>
+                <td>{% if gaucho.sysDate %}{{ gaucho.sysDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('gaucho_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('gaucho_edit', { 'id': gaucho.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

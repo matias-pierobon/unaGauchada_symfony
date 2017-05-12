@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gauchos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Ciudad</th>
+                <th>Password</th>
+                <th>Salt</th>
+                <th>Photo</th>
+                <th>Photomime</th>
+                <th>Sysdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gaucho in gauchos %}
+            <tr>
+                <td><a href="{{ path('gaucho_show', { 'id': gaucho.id }) }}">{{ gaucho.id }}</a></td>
+                <td>{{ gaucho.name }}</td>
+                <td>{{ gaucho.lastname }}</td>
+                <td>{{ gaucho.email }}</td>
+                <td>{{ gaucho.ciudad }}</td>
+                <td>{{ gaucho.password }}</td>
+                <td>{{ gaucho.salt }}</td>
+                <td>{{ gaucho.photo }}</td>
+                <td>{{ gaucho.photoMime }}</td>
+                <td>{% if gaucho.sysDate %}{{ gaucho.sysDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('gaucho_show', { 'id': gaucho.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('gaucho_edit', { 'id': gaucho.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('gaucho_new') }}">Create a new gaucho</a>
+        </li>
+    </ul>
+{% endblock %}

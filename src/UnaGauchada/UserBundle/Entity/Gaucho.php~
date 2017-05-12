@@ -1,0 +1,24 @@
+<?php
+
+namespace UnaGauchada\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Gaucho
+ *
+ * @ORM\Table(name="gauchos")
+ * @ORM\Entity(repositoryClass="UnaGauchada\UserBundle\Repository\GauchoRepository")
+ */
+class Gaucho extends User
+{
+    /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="UnaGauchada\FavoresBundle\Entity\Favor", mappedBy="solicitante")
+     */
+    private $solicitudes;
+
+    public function isAdmin(){
+        return false;
+    }
+}
